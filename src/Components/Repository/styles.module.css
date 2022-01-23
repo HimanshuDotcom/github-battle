@@ -1,0 +1,50 @@
+.center {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3.4rem;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  font-weight: bolder;
+  margin-bottom: 15px;
+}
+h2 a {
+  color: red;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+}
+.wrapper > * {
+  flex-basis: 25%;
+  margin-bottom: 25px;
+  /* border: 1px solid red; */
+}
+.repo {
+}
+.img {
+  margin-bottom: 10px;
+}
+.img img {
+  display: inline-block;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.repo__desc {
+  padding-left: 20px;
+  font-size: 1.8rem;
+}
+
+.repo__desc li {
+  margin-bottom: 10px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
