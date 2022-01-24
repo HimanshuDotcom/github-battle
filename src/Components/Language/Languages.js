@@ -38,7 +38,7 @@ class Language extends React.Component {
     
     state = {
         currLang : 'all',
-        repos: null,
+        repos: {},
         err: null,
     }
 
@@ -47,12 +47,13 @@ class Language extends React.Component {
         .then(res => {
             if(res) {
                 this.setState({
-                    ...this.state,
-                    repos: res
+                    repos: {
+                        ...this.state.repos,
+                        [lang] : res
+                    }
                 })
             }
             else {
-                console.log(res);
                 this.setState({
                     err: 'NOT FOUND'
                 })
@@ -69,10 +70,11 @@ class Language extends React.Component {
     updateLang = (lang) => {
         this.setState({
             currLang: lang,
-            repos: null,
+            repos: {...this.state.repos},
             err: null
         })
-        this.setRepo(lang);
+        if(this.state.repos[lang] === undefined)
+            this.setRepo(lang);
     }
 
     componentDidMount() {
@@ -80,12 +82,11 @@ class Language extends React.Component {
     }
 
     setLoading = () => {
-        return this.state.repos === null && this.state.err === null;
+        return !this.state.repos[this.state.currLang] && this.state.err === null;
     }
 
     render() {
-        const {repos,err} = this.state;
-        console.log('repos',repos)
+        const {currLang,repos,err} = this.state;
         return (
             <>
                 <LanguageNav 
@@ -93,7 +94,7 @@ class Language extends React.Component {
                     updateLang = {this.updateLang}
                 />
                 {err && <p>{err}</p>}
-                {   repos && <Repository repos = {this.state.repos} />}
+                {   repos[currLang] && <Repository repos = {this.state.repos[currLang]} />}
 
                 {this.setLoading() && <p>Loading...</p>}
                 

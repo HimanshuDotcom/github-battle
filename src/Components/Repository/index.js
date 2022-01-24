@@ -3,7 +3,6 @@ import styles from './styles.module.css';
 import {FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa';
 
 function Repo({index,repo}) {
-    console.log(repo);
     return (
         <>
             <div className={cx(styles.repo)}>
@@ -41,7 +40,7 @@ function Repository({repos}) {
     return (
         <>
             <div className={cx(styles.wrapper)}>
-                {repos.map((repo,index) => <Repo index = {index} repo = {repo} /> )}
+                {repos.map((repo,index) => <Repo key = {repo.id} index = {index} repo = {repo} /> )}
             </div>
         </>
     )
