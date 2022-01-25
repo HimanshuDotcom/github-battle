@@ -15,19 +15,19 @@ function Repo({index,repo}) {
                 </h2>
                 <ul className={cx(styles.repo__desc)}>
                     <li> 
-                        <FaUser color='rgb(255,191,116)' style={{'margin-right' : '10px'}} /> 
+                        <FaUser color='rgb(255,191,116)' style={{'marginRight' : '10px'}} /> 
                         {repo.name}
                     </li>
                     <li> 
-                        <FaStar color='rgb(255,215,0)' style={{'margin-right' : '10px'}} /> 
+                        <FaStar color='rgb(255,215,0)' style={{'marginRight' : '10px'}} /> 
                         {repo.stargazers_count.toLocaleString()} stars
                     </li>
                     <li> 
-                        <FaCodeBranch color='rgb(129,195,245)' style={{'margin-right' : '10px'}} /> 
+                        <FaCodeBranch color='rgb(129,195,245)' style={{'marginRight' : '10px'}} /> 
                         {repo.forks.toLocaleString()} forks
                     </li>
                     <li> 
-                        <FaExclamationTriangle color='rgb()' style={{'margin-right' : '10px'}} /> 
+                        <FaExclamationTriangle color='rgb()' style={{'marginRight' : '10px'}} /> 
                         {repo.open_issues.toLocaleString()} open issue
                     </li>
                 </ul>

@@ -1,0 +1,19 @@
+.navbar {
+  /* border: 1px solid red; */
+  margin-bottom: 50px;
+}
+.navbar nav {
+  display: flex;
+  font-size: 1.8rem;
+}
+
+.navbar nav a {
+  color: black;
+  display: inline-block;
+  margin-right: 25px;
+}
+
+.active {
+  color: red;
+  font-size: 55px;
+}
