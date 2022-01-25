@@ -2,7 +2,6 @@ import './App.css';
 import Language  from "./Components/Language/Languages";
 
 
-
 function App() {
   const styles = {
     'margin' : '0 auto',

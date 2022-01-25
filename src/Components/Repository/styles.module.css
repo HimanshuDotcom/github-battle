@@ -2,32 +2,33 @@
   text-align: center;
 }
 
-h1 {
+.h1 {
   font-size: 3.4rem;
   margin-bottom: 15px;
 }
 
-h2 {
+.h2 {
   font-size: 2.4rem;
   font-weight: bolder;
   margin-bottom: 15px;
 }
-h2 a {
+.h2 a {
   color: red;
 }
 
 .wrapper {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
   padding: 50px;
 }
 .wrapper > * {
-  flex-basis: 25%;
-  margin-bottom: 25px;
-  /* border: 1px solid red; */
+  min-width: 300px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
 }
-.repo {
-}
+
 .img {
   margin-bottom: 10px;
 }

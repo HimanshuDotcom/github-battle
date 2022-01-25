@@ -6,11 +6,11 @@ function Repo({index,repo}) {
     return (
         <>
             <div className={cx(styles.repo)}>
-                <h1 className={cx(styles.center)}>#{index+1}</h1>
+                <h1 className={cx(styles.center,styles.h1)}>#{index+1}</h1>
                 <div className={cx(styles.center,styles.img)}>
                     <img  src = {`${repo.owner.avatar_url}`} alt="Repo image" />
                 </div>
-                <h2 className={cx(styles.center)}>
+                <h2 className={cx(styles.center,styles.h2)}>
                     <a href={repo.html_url} >{repo.name} </a>
                 </h2>
                 <ul className={cx(styles.repo__desc)}>
