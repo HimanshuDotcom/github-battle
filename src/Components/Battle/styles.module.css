@@ -19,3 +19,53 @@
 .instr li span {
   margin-bottom: 30px;
 }
+
+/* ------------------- Players Section ----------------- */
+
+.players {
+  padding: 50px 0;
+}
+.players_group {
+  /* border: 1px solid teal; */
+  display: flex;
+}
+
+.player {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.player_label {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 10px;
+}
+.player_form {
+  border: 1px solid black;
+  max-width: 500px;
+}
+.player_input {
+  /* border: 1px solid red; */
+  display: flex;
+}
+.player_input input {
+  display: inline-block;
+  border: 1px solid #ddd;
+  padding: 15px 16px;
+  flex: 1;
+}
+.btn {
+  padding: 0 24px;
+  border: 1px solid #ddd;
+  margin-left: 10px;
+}
+
+.btn:disabled {
+  background: none;
+  color: #ddd;
+  border: none;
+}
+.dark_btn {
+  background-color: rgba(0, 0, 0);
+  color: white;
+}
