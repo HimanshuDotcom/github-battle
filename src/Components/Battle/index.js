@@ -1,7 +1,8 @@
 import cx from "classnames";
 import styles from './styles.module.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {FaTrophy,FaUserFriends,FaFighterJet} from 'react-icons/fa';
+import { fetchProfile } from "../../api";
 
 function Instruction() {
     return (
@@ -25,12 +26,16 @@ function Instruction() {
     )
 }
 
-function Player({label}) {
+function Player({label, onSubmit}) {
     const [user,setUser] = useState('');
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSubmit(e.target[0].value);
+    }
     return(
         <>
-            <form className={cx(styles.player)} onSubmit={() => console.log('here')}>
+            <form className={cx(styles.player)} onSubmit={handleSubmit}>
                 <label className={cx(styles.player_label)}>
                     {label}
                 </label>
@@ -54,16 +59,77 @@ function Player({label}) {
     )
 }
 
+const Profile = ({player,resetPlayer}) => {
+    const [data,setData] = useState('')
+
+    useEffect(() => {
+        fetchProfile(player).then(res => setData(res));
+    },[player])
+
+    const handleReset = () => {
+        setData('');
+        resetPlayer();
+    }
+    return (
+        <>
+            <div className={cx(styles.profile)}>
+                <div className={cx(styles.profile_desc)}>
+                    <img src={`${data.avatar_url}`} alt="" />
+                    <h2>{data.login}</h2>
+                </div>
+                <button onClick={handleReset}>&times;</button>
+            </div>
+        </>
+    )
+}
+
 function Battle() {
+    const [player1,setPlayer1] = useState('');
+    const [player2,setPlayer2] = useState('');
+    const [battle,setBattle] = useState(false);
+
+    if(battle) {
+        return (
+            <>RESult Page</>
+        )
+    }
+    
     return (
         <>
             <Instruction />
             <div className={cx(styles.players)}>
                 <h1 className={cx(styles.h1)}>Players</h1>
                 <div className={cx(styles.players_group)}>
-                    <Player label="Player 1" />
-                    <Player label="Player 2" />
+                   {
+                       player1 ?
+                       <Profile 
+                            player={player1} 
+                            resetPlayer = {() => setPlayer1('')}
+                        /> :
+                        <Player 
+                            label="Player 1" 
+                            onSubmit = {(name) => setPlayer1(name)}
+                            resetPlayer = {() => setPlayer1('')}
+                        />
+                   } 
+                   {
+                       player2 ?
+                       <Profile 
+                            player={player2} 
+                            resetPlayer = {() => setPlayer2('')}
+                        /> :
+                        <Player 
+                            label="Player 2" 
+                            onSubmit = {(name) => setPlayer2(name)}
+                        />
+                   } 
+                
                 </div>
+                {   player1 && player2 && 
+                    <button className = {cx(styles.btn_dark)} onClick={() => setBattle(true)}>
+                        Battle
+                    </button>
+                }
             </div>
             
         </>

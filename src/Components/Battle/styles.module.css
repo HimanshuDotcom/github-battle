@@ -23,13 +23,17 @@
 /* ------------------- Players Section ----------------- */
 
 .players {
-  padding: 50px 0;
+  padding: 70px 0;
 }
 .players_group {
   /* border: 1px solid teal; */
   display: flex;
+  flex-wrap: wrap;
 }
-
+.players_group > * {
+  flex: 1;
+  /* border: 1px solid red; */
+}
 .player {
   flex: 1;
   margin-right: 20px;
@@ -68,4 +72,51 @@
 .dark_btn {
   background-color: rgba(0, 0, 0);
   color: white;
+}
+
+/* --------------------- Profile ----------------- */
+.profile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  margin-right: 20px;
+}
+
+.profile_desc {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+}
+.profile_desc img {
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
+  border: none;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-weight: bolder;
+}
+
+.btn_dark {
+  display: block;
+  font-size: 1.8rem;
+  margin: 50px auto 0 auto;
+  border: none;
+  padding: 10px 30px;
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 }
