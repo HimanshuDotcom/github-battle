@@ -3,6 +3,7 @@ import styles from './styles.module.css';
 import { useEffect, useState } from "react";
 import {FaTrophy,FaUserFriends,FaFighterJet} from 'react-icons/fa';
 import { fetchProfile } from "../../api";
+import Result from "../Result/index";
 
 function Instruction() {
     return (
@@ -90,7 +91,8 @@ function Battle() {
 
     if(battle) {
         return (
-            <>RESult Page</>
+            <Result player1 = {player1} player2 = {player2}/>
+            // <>REsult</>
         )
     }
     
