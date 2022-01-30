@@ -49,7 +49,10 @@ export function getScore(user) {
         fetchProfile(user),
         fetchUserRepo(user)
     ]).then(([profile,repos]) => {
-       return profile.followers + calculateStars(repos);
+       return {
+            profile: profile,
+            score: profile.followers + calculateStars(repos)
+       }
     })
 }
 
@@ -59,7 +62,7 @@ export function calculateScore(player1,player2) {
         getScore(player2)
     ])
     .then(res => {
-        console.log(res);
-        return res;
+        if(res)
+            return res.sort((a,b) => b.score - a.score);
     })
 }
