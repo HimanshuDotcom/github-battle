@@ -1,7 +1,8 @@
-import { useEffect, useReducer } from "react";
-import { useState } from "react/cjs/react.development";
 import { calculateScore } from "../../api";
-
+import { useReducer, useEffect } from "react";
+import cx from "classnames";
+import styles from './styles.module.css';
+import { FaBriefcase, FaCompass, FaUser, FaUserFriends, FaUsers } from "react-icons/fa";
 
 function resultReducer(state,action) {
     switch(action.type) {
@@ -23,8 +24,41 @@ function resultReducer(state,action) {
             throw new Error(`Action isn't supported`);
     }
 }
+function ResultCard({profile, status}) {
+    const {profile:user,score} = profile; 
+    console.log(profile)
+    return(
+        <>
+            <div className={cx(styles.player)}>
+                <h1>{status.toUpperCase()}</h1>
+                <img className="" src={user.avatar_url} alt = "Player image" />
+                <h3>Score : {score.toLocaleString()}</h3>
+                <h2><a target="_blank" href={user.url}>{user.name}</a></h2>
+                <ul className={cx(styles.player_desc)}>
+                    <li><FaUser color= 'rgb(239,115,115)' size={25} />{user.login}</li>
+                    <li>
+                        <FaCompass color='rgb(144,115,255)'size={25} />
+                        {user.location || "Not Availabe"}
+                    </li>
+                    <li>
+                        <FaBriefcase color='#795548'size={25} />
+                        {user.company || "Not Availble"}
+                    </li>
+                    <li>
+                        <FaUsers color='rgb(129,195,245)' size={25}/>
+                        {user.followers.toLocaleString()} followers
+                    </li>
+                    <li>
+                        <FaUserFriends color='rgb(64,195,245)' size={25} />
+                        {user.following.toLocaleString()} following
+                    </li>
 
-function Result({player1,player2}) {
+                </ul>
+            </div>
+        </>
+    )
+}
+function Result({player1,player2, resetBattle}) {
     const [state,dispatch] = useReducer(
         resultReducer, 
         {winner: null, loser: null,err: null, loading: true})
@@ -35,8 +69,8 @@ function Result({player1,player2}) {
             dispatch({
                 type: 'sucess',
                 payload: {
-                    winner: res[0].profile,
-                    loser: res[1].profile
+                    winner: res[0],
+                    loser: res[1]
                 }
             })
         }
@@ -56,7 +90,11 @@ function Result({player1,player2}) {
         <>
             {err && <p>{err}</p>}
             {loading && <p>Loading...</p>}
-            {(winner && loser) && <p>{JSON.stringify(winner)} </p>}
+            <div className={cx(styles.results)}>
+                {winner && <ResultCard profile = {winner} status = "winner" />}
+                {loser && <ResultCard profile={loser} status="loser" />}
+            </div>
+            <button onClick={resetBattle}  className={cx(styles.btn)}>Reset</button>
         </>
     )
 }

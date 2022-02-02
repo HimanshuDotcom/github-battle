@@ -51,7 +51,7 @@ export function getScore(user) {
     ]).then(([profile,repos]) => {
        return {
             profile: profile,
-            score: profile.followers + calculateStars(repos)
+            score: 3 * profile.followers + calculateStars(repos)
        }
     })
 }

@@ -89,9 +89,10 @@ function Battle() {
     const [player2,setPlayer2] = useState('');
     const [battle,setBattle] = useState(false);
 
+
     if(battle) {
         return (
-            <Result player1 = {player1} player2 = {player2}/>
+            <Result player1 = {player1} player2 = {player2} resetBattle = {() => setBattle(false)}/>
             // <>REsult</>
         )
     }
