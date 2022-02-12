@@ -3,6 +3,7 @@ import cx from 'classnames';
 import React from "react";
 import { fetchRepo } from "../../api";
 import Repository from "../Repository/index";
+import Loading from "../Loading/index";
 
 function LanguageNav({currLang, updateLang}) {
 
@@ -96,7 +97,7 @@ class Language extends React.Component {
                 {err && <p>{err}</p>}
                 {   repos[currLang] && <Repository repos = {this.state.repos[currLang]} />}
 
-                {this.setLoading() && <p>Loading...</p>}
+                {this.setLoading() && <Loading  msg = "Fetching Language"/>}
                 
             </>
         )

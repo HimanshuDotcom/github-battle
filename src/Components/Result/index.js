@@ -2,6 +2,7 @@ import { calculateScore } from "../../api";
 import { useReducer, useEffect } from "react";
 import cx from "classnames";
 import styles from './styles.module.css';
+import Loading from "../Loading/index";
 import { FaBriefcase, FaCompass, FaUser, FaUserFriends, FaUsers } from "react-icons/fa";
 
 function resultReducer(state,action) {
@@ -89,7 +90,7 @@ function Result({player1,player2, resetBattle}) {
     return (
         <>
             {err && <p>{err}</p>}
-            {loading && <p>Loading...</p>}
+            {loading && <Loading msg = "Fetching Result" />}
             <div className={cx(styles.results)}>
                 {winner && <ResultCard profile = {winner} status = "winner" />}
                 {loser && <ResultCard profile={loser} status="loser" />}
