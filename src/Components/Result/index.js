@@ -27,6 +27,9 @@ function resultReducer(state,action) {
 }
 function ResultCard({profile, status}) {
     const {profile:user,score} = profile; 
+    const prac = (e) => {
+        console.log(e);
+    }
     console.log(profile)
     return(
         <>
@@ -36,7 +39,7 @@ function ResultCard({profile, status}) {
                 <h3>Score : {score.toLocaleString()}</h3>
                 <h2><a target="_blank" href={user.url}>{user.name}</a></h2>
                 <ul className={cx(styles.player_desc)}>
-                    <li><FaUser color= 'rgb(239,115,115)' size={25} />{user.login}</li>
+                    <li onMouseOver={prac}><FaUser color= 'rgb(239,115,115)' size={25} />{user.login}</li>
                     <li>
                         <FaCompass color='rgb(144,115,255)'size={25} />
                         {user.location || "Not Availabe"}

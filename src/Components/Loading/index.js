@@ -24,7 +24,7 @@ function Loading({msg}) {
 
     return (
         <div style={{'padding' : '50px',}}>
-            <p style={{'fontSize' : '30px',}}>{data}</p>
+            <p style={{'fontSize' : '30px','color' : '#611410'}}>{data}</p>
         </div>
     )
 }

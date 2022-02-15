@@ -1,6 +1,7 @@
 import cx from "classnames";
 import styles from './styles.module.css';
 import {FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons/fa';
+import Tooltip from "../Tooltip/index";
 
 function Repo({index,repo}) {
     return (
@@ -14,14 +15,18 @@ function Repo({index,repo}) {
                     <a href={repo.html_url} >{repo.name} </a>
                 </h2>
                 <ul className={cx(styles.repo__desc)}>
+                    <Tooltip msg = "github-user">
                     <li> 
                         <FaUser color='rgb(255,191,116)' style={{'marginRight' : '10px'}} /> 
                         {repo.name}
                     </li>
-                    <li> 
-                        <FaStar color='rgb(255,215,0)' style={{'marginRight' : '10px'}} /> 
-                        {repo.stargazers_count.toLocaleString()} stars
-                    </li>
+                    </Tooltip>
+                    <Tooltip msg = "stars">
+                        <li> 
+                            <FaStar color='rgb(255,215,0)' style={{'marginRight' : '10px'}} /> 
+                            {repo.stargazers_count.toLocaleString()} stars
+                        </li>
+                    </Tooltip>
                     <li> 
                         <FaCodeBranch color='rgb(129,195,245)' style={{'marginRight' : '10px'}} /> 
                         {repo.forks.toLocaleString()} forks
