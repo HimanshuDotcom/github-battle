@@ -1,6 +1,6 @@
 # Github-Battle
 
-React Application
+A react application to explore top repositories on github and battle two users on basis of their github profile.
 
 
 ## Screenshots
