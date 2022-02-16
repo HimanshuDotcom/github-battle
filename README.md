@@ -5,11 +5,11 @@ React Application
 
 ## Screenshots
 
-![Home Page](https://github.com/HimanshuDotcom/github-battle/blob/master/images/Home.png?raw=true)
+![Home Page](https://github.com/HimanshuDotcom/github-battle/blob/main/images/Home.png?raw=true)
 
-![Battle Page](https://github.com/HimanshuDotcom/github-battle/blob/master/images/Battle.png?raw=true)
+![Battle Page](https://github.com/HimanshuDotcom/github-battle/blob/main/images/Battle.png?raw=true)
 
-![Result Page](https://github.com/HimanshuDotcom/github-battle/blob/master/images/Result.png?raw=true)
+![Result Page](https://github.com/HimanshuDotcom/github-battle/blob/main/images/Result.png?raw=true)
   
 ## Features
 
